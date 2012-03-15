@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "winquake", "WinQuake2003.vcproj", "{18840D28-6B63-43DE-A54F-F1532214C139}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		GL Debug = GL Debug
+		GL Release = GL Release
+		GL Release Profile = GL Release Profile
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{18840D28-6B63-43DE-A54F-F1532214C139}.GL Debug.ActiveCfg = GL Debug|Win32
+		{18840D28-6B63-43DE-A54F-F1532214C139}.GL Debug.Build.0 = GL Debug|Win32
+		{18840D28-6B63-43DE-A54F-F1532214C139}.GL Release.ActiveCfg = GL Release|Win32
+		{18840D28-6B63-43DE-A54F-F1532214C139}.GL Release.Build.0 = GL Release|Win32
+		{18840D28-6B63-43DE-A54F-F1532214C139}.GL Release Profile.ActiveCfg = GL Release Profile|Win32
+		{18840D28-6B63-43DE-A54F-F1532214C139}.GL Release Profile.Build.0 = GL Release Profile|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

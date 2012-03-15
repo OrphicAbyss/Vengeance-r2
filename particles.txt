@@ -1,0 +1,110 @@
+- Entar's Scriptable particle system
+.	Paramaters:
+	  Set these paramaters to create your new particle effect.  Remember, you may call
+	  more than one script section from the QC at a time, or use the extra paramater.
+		* type: what type of particles to spawn
+				[p_fire, p_fire2, p_sparks, p_smoke, p_bubble, p_blood, p_chunks]
+		* color0, color1, color2 (or red, green, blue): color values (0-1)
+		* size: size of the particle(s)
+		* time: how long the particle(s) last
+		* count: how many particles to spawn
+		* decalsize: the size of the decal (no decal spawned if 0)
+		* decalcolor0, decalcolor1, decalcolor2: red, green, blue, decal color values (0-1)
+		* velocity0, velocity1, velocity2 x, y, z parameters for velocity
+				(setting of 1, 1, 1 is zerodir)
+		* gravity: gravity multiplier
+				(1 = normal gravity, 0 = no gravity, -1 = reverse gravity, etc)
+		* trail: what type of particle trail your particles have (same paramater choices as type)
+		* trailsize: the trail particles' size
+		* trailtime: how long the particles of the trail last
+		* trailextra: if defined, will call a particle script as trail *INSTEAD* of trailsize/time
+		* extra: if defined, the engine calls the script defined here
+		* growrate: rate of growth of a particle (0 = none, negative numbers cause shrinking)
+		* rotation: how far rotated the particle begins
+		* rotation_speed: how fast the particle rotates
+		* srcblend: source GL blend mode
+		* dstblend: dist GL blend mode
+		* startalpha: starting alpha value
+		* texture: particle texture, defaults to texture for the type you chose
+				(part_tex, blood_tex, smoke_tex, spark_tex, bubble_tex, trail_tex, lightning_tex)
+				
+.	Modifiers:
+	  When using a modifier, set a decimal value (e.g. randtime=0.35) and the engine
+	  will treat the decimal as a percent (35%), and do a randomize on the time value
+	  (e.g. time=0.71, now time=random, anywhere between 0.4615 and 0.9585).
+	  Exceptions:
+	  randcolor and randchangevel- just set to 1 for a random color/newvel,
+	  randchangeorg- the number indicates how far (in units) to move away (max).
+		* randcolor: sets the particle(s) to a random color
+		* randsize: sets the particle(s) to a random size around the size paramater.
+		* randvel: gives the particle(s) a random velocity, around the velocity paramaters.
+		* randtime: gives the particle(s) a random time until death, around the time paramater.
+		* randchangevel: gives the particle(s) a random velocity.
+		* randchangeorg: gives each particle a random spawnpoint around the original point
+		* randrotatespeed: gives the particle(s) a random rotation speed,
+				around the rotation_speed paramater.
+.	Special Script Names:
+	 If you name a particle script as certain names, you can affect certain
+	 otherwise unchangeable particle effects.
+		* progs/modelname.mdl: If you set a script's name to the path/name
+				  of a model, the particle effect you create in that script will be attached
+				to every instance of that model, just like a particle trail.
+		* TE_*: To change the effect created by a certain TE_* effect, just create
+				a script section with the name set to the TE_* effect you want to change.
+		* RocketTrail: This will change the rocket trail that is normally added
+				to rockets.
+		* GrenadeTrail, BloodTrail, BloodTrail2, ScragTrail, HKnightTrail,
+				VoreTrail: similar to RocketTrail, only on different particle trails.
+
+
+For DrLabman's thoughts about advanced particle systems, see below.
+
+
+
+
+
+Particles [the next step].
+
+Currently particles types are defined in the engine. This isn't as flexable as it could be.
+
+So a new way of handling particles is needed. My current idea is a tree structor. With a
+crossbar at the top and roots which are grouped by texture and sorted by blend mode.
+
+For instance:
+
+[one,one]					[alpha, one_minus_alpha]		[alpha, one_minus_src_color]
+Smoke_tex --> Blood_tex --> Chunk_tex --> Trail_tex --> Lightning_Tex -->  null
+	|				|			|				|				|
+	|				|			|				|				|
+Particle		Particle	Particle		Particle		Particle
+	|				|			|				|				|
+Particle		Particle	Particle		Particle		Particle
+	|				|			|				|				|
+Particle		Particle	Particle		Particle		Particle
+	|				|			|				|				|
+Particle		Particle	Particle		Particle		Particle
+	|				|			|				|				|
+Particle		Particle	Particle		Particle		Particle
+	|				|			|				|				|
+Particle		Particle	Particle		Particle		Particle
+	|				|			|				|				|
+  Null			  Null		  Null			  Null			  Null
+
+
+
+Basicly it would add a set of 64 (assuming 64 diffrent textured particles is enough) new 
+stucts which point to a type of particle contain a blend type and point to the next set
+of particals, the draw function would then use the blend type specified by the set pointer
+then draw the list, then do the next set and so on.
+
+This would limit the amount of state changes which can be slow on some 3dcards as well as
+texture changes.
+
+Also by sorting the set types when adding them into the set list so that all the particles
+with the same blend type come in a row, further speed gains could be made (this isnt as important
+as the other gains made).
+
+This type of structor would also allow for alot of reuse of code. For removing particles, and
+updating particles, as well as drawing particles.
+
+send comments to drlabman@planetquake.com

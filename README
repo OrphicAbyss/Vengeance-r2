@@ -1,0 +1,42 @@
+Vengeance r2 - Quake Engine Source Modification
+================================================================================
+
+Introduction by Entar:
+--------------------------------------------------------------------------------
+Vengeance r2 is a Quake engine modification I worked on for a few years, early
+on in my learning of programming and graphics technology. Through tinkering
+around with this project, I developed my skills significantly in the areas of
+OpenGL and C. A number of developers from the online Quake modding community,
+including DrLabman and Black (aka BlackHC), contributed heavily to the project.
+
+The project also included a QuakeC and content modification portion which added
+new single player and deathmatch levels, altered and improved the game balance
+and AI, and added bots (Frikbots) for multiplayer.
+
+Engine Features:
+
+  Enhanced, scriptable Particle System
+  GLSL Per-pixel lighting
+  Improved file format support including: MD2, MD3, Half-Life BSP, PK3, tga, jpg
+  Reflective Water
+  Skyboxes
+  Light Blooms
+  … and more
+
+
+================================================================================
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+================================================================================

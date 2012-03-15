@@ -1,0 +1,861 @@
+**********************
+Changes in Vengeance since switching to QMB v1.18
+**********************
+
+--> All entries by Entar unless otherwise noted.
+--> [...] = Note
+
+(April 4, 2005) Added a workaround for the caustics bug on some maps, tweaked particles to
+ol' Vengeance style, fixed the light going through walls bug,
+added proper gun movement in view.c, and added basic binoculars code plus green screen, removed
+shiny textures option in menu, made gl_shiny default to 0, tweaked default fog cvar values,
+expanded 'hud' cvar to up to 4 to include hudstyles.
+
+(April 5, 2005) Added menu option for hudstyles, took detail texturing out of menu, fixed caustics
+at the expense of detail textures (which didn't work anyway), tweaked explosions and lavasplash.
+
+(April 6, 2005) Added emboss mapping effect and cvar and menu option, added secondary
+blood effect, tweaked caustics fix, optimized AddFire stuff.
+
+(April 7, 2005) Tweaked emboss mapping.
+
+-- Released version 2.0.0
+
+(April 8, 2005) Changed some of the random menu messages.
+
+(April 9, 2005) Added Enhanced Tab completion, tweaked [down] explosion for better speed.
+
+(April 11, 2005) Added texture script system from frag.machine and improved it, fixed bug with
+alternate hudstyle.
+
+(April 12, 2005) Added basic Model Script System based on frag.machine's texture script code,
+fixed other bug with alternate hudstyle, made folder system do 'vr2',
+cleaned up code (5 warnings gone), removed texture shader cvar + added -nofilters paramater.
+
+(April 15, 2005) Added shadow code for md3 models [thanks Reckless].
+
+-- Released version 2.0.1
+
+(April 18, 2005) Added model script flag for "all-the-time quad shell", added new splash particle
+extension (#125), repositioned out-of-place menu text.
+
+(April 19, 2005) Finished TE_EXPLOSIONQUAD (#70) code, temporarily finished TE_PARTICLERAIN (#55).
+
+(April 20, 2005) Finished TE_EXPLOSIONRGB (#53) code, finished TE_PLASMABURN (#75) code, fixed
+small particle() bug.
+
+(April 25, 2005) Fixed EF_DIMLIGHT (theoretically), did mh's water tutorials #1-3, tweaked stuff.
+
+(April 26, 2005) Added Reckless' mathlib.c code.
+
+(April 27, 2005) Added incomplete light blooms [thanks KrimZon], added r_part_flame
+cvar + functionality, changed gamma menu stuff, added fullbrightflag model script flag.
+
+(April 28, 2005) Finished fixing light blooms code, tweaked default cvar values,
+finished TE_GUNSHOTQUAD (#57) code.
+
+-- Released 4-28-05 beta
+
+(April 29, 2005) Changed/added to credits screen, implemented hardcoded particle textures
+from TomazQuake, implemented spark texture into hardcoded textures, tweaked addfire calls,
+unimplemented spark texture from hardcoded textures (doesn't look right).
+
+(April 30, 2005) Finished TE_PARTICLERAIN (#55) particle effect.
+
+(May 2, 2005) Fixed gamma problem with light blooms, fixed gamma menu stuff, tweaked underwater
+particle settings, implemented decal code, added working blood decals, added r_decaltime cvar,
+tweaked stuff.
+
+(May 4, 2005) Darkened blood, changed default r_decaltime value to 8, added DP fading of dynamic
+lights, changed credits.
+
+(May 6, 2005) Changed int's on RGB explosion to floats.
+
+(May 9, 2005) Fixed TE_PLASMABURN in cl_tent.c
+
+(May 10, 2005) Optimized/lessened particle effects.
+
+(May 11, 2005) Fixed TE_PLASMABURN [like, for real this time]
+
+(May 14, 2005) Finished TE_SPIKEQUAD (#58) code, finished TE_SUPERSPIKEQUAD (#59) code
+
+(May 16, 2005) Added Reckless' Q_strcat code, added Chronicle menu and particle code, changed
+p_blood physics.
+
+(May 17, 2005) Added lighting effects on particles, brightened blood slightly, added
+r_part_lighting cvar
+
+-- Released version 2.1.0
+
+(May 17, 2005) Added more chronicle menu code [replaced sp with credits].
+
+(May 18, 2005) Fixed gamma menu slider, made gl_bloom save cvar value, added variation in
+blood trail dir, tweaked particles
+
+(May 19, 2005) Added sv_gamespeed cvar
+
+(May 20, 2005) Added #ifndef Chronicle on binoculars code, added experimental textured fire,
+removed spark-blood, changed menu stuff
+
+(May 21, 2005) Removed Reckless' Q_strcat code, disabled crash on bad bsp version, added some
+sv_menu options
+
+(May 27, 2005) Added Spike's motion blur code and applied it to cl.stats[STAT_HEALTH] < 20,
+added v_hurtblur cvar.
+
+(May 30, 2005) Added fix in gamma code for hurtblur.
+
+(May 31, 2005) Fixed bloom + motion-blur bug, made hurtblur intensity proportionate to how
+far below 20 health the player is.
+
+(June 1, 2005) Added contrast cvar functionality
+
+(June 6, 2005) Removed contrast cvar [doesn't really do anything], added console game code
+
+(June 7, 2005) Added more console game code, added NoEmboss texture filter [fixing RL skin bug]
+
+(June 8, 2005) Finished base of console game.
+
+-- Released version 2.1.1
+
+(June 22, 2005) Tweaked dynamic lighting, added more CHRONICLE code.
+
+(June 25, 2005) Edited underwater cl.cshifts (nasty screen overlay).
+
+(June 29, 2005) Added gl_shaders.c code and tweaked blood trails, changed gl_shaders.c code,
+added/changed some code in and around EmitWaterPolysMulti, changed window name from "GLQuake"
+to "VengeanceR2".
+
+(July 1, 2005) Tweaked blood color, added 'bloodsmoke', fixed tab completion bug with
+r_interpolate_model_transform + animation.
+
+(July 3, 2005) Added more CHRONICLE code in gl_rpart.c.
+
+(July 4, 2005) Tweaked CHRONICLE code, removed gl_shaders.c and related code [was a hack].
+
+(July 5, 2005) Added TE_VEN_EVENTSPLASH (#126) particle extension
+
+(July 9, 2005) Added cvarlist and cmdlist console commands.
+
+(July 10, 2005) Added basic underwater view-warping.
+
+(July 11, 2005) Tweaked view-warping, added (currently unused) gl_noise.c code from DP, 
+tweaked 'bloodsmoke'.
+
+(July 12, 2005) Added dev_findradius cvar and functionality.
+
+(July 13, 2005) Tweaks.  Added qcexec command.
+
+(July 14, 2005) Fixed END key, expanded r_speeds info, added chase_active 2 from Telejano.
+
+(July 15, 2005) Fixed strange underwater flashing bug, edited sparks velocity settings.
+
+(July 20, 2005) Added basic HLBSP compatibility! Tweaked Mod_LoadFaces for HLBSP, finished
+v_color_* cvar functionalities.
+
+(July 22, 2005) Added strlcpy function from DP, tweaked r_speeds info, added more to the
+console game. 
+
+(July 25, 2005) Added p_fire2 particle type (same as p_fire, but with part_tex), created
+pg_grav_extreme gravity option (slightly higher gravity than pg_grav_high), tweaked spark
+velocity/gravity stuff.
+
+(July 29, 2005) Implemented DP's BuildGammaTable16 function, added drawonlytoclient stuff.
+
+(August 1, 2005) Edited custom chasecam stuff, extended chat_buffer from 32 to 64, tweaked
+sbar, finished drawonlytoclient.
+
+(August 2, 2005) Added nodrawtoclient stuff, added basic (kinda nasty) bullet decals, fixed
+aformentioned "nasty" decals, added explosion decals, tweaked CL_SpawnDecalParticleForPoint
+function, fixed chasecam going through walls bug.
+
+(August 3, 2005) Tweaked explosion decals, added r_decal_blood cvar, fixed nodrawtoclient,
+fixed chasecam player model bug, tweaked CL_SpawnParticleDecalForPoint function,
+disabled lighting on p_decal particles, added chase_yaw cvar.
+
+(August 4, 2005) Added TE_VEN_EXPLOSIONCUSTOM (#127) particle extension, tweaked emboss
+settings, added sv_cheats cvar, disabled HL texture loading to fix bug.
+
+(August 5, 2005) Added MOVETYPE_FOLLOW support, tweaked the decal spawning code.
+
+(August 6, 2005) Fixed notex viewing of HL maps (made it use regular Q1 texture loading
+function, only different on HL bsp; external textures work great!), added ed_printtextures cvar.
+
+(August 8, 2005) Tweaked particle stuff, added r_fullbright functionality and cheat protection,
+added lamescript code, added basic explosion script code, created R_ScriptParticles function,
+added stuff in R_RunParticleEffect for scripts, created AddParticleCustom function for scripts.
+
+(August 9, 2005) Added a lot more script stuff, added decals to particle scripts,
+added sv_freezenonclients cvar.
+
+(August 10, 2005) Tweaked VelChange stuff, added script_startalpha, added lightning decals,
+made other TE_* effects check for -then do- scripts, added sv_newflymove cvar.
+
+(August 12, 2005) Added TE_FLAMEJET (#74) particle extension, added fireflag model script flag.
+
+-- Released 2.1.2
+
+(August 13, 2005) Finished trail support on scriptable particles, fixed invisi-wall bug from
+mh's water, made TE_EXPLOSION also call explosion_addition script, fixed crash in decal
+function when there are too many particles, added checkwater script paramater with default to
+true.
+
+(August 15, 2005) Added 'extra' paramater in particle scripts, and removed calling of
+explosion_addition script from engine.
+
+(August 16, 2005) Fixed physics/velocity bug in particle scripts.
+
+(August 17, 2005) Gave all the script values defaults, made script values check to see if
+the key exists before getting value (this way if a value isn't entered, it goes to default
+instead of crashing).  Added VEN_SCRIPT_PARTICLES to ENGINE_EXTENSIONS so that QC'ers can
+checkextension for scriptable particles.  Added v_psycho cvar.  Tweaked Chase stuff.
+Changed light bloom code (specifically blendfunc).
+
+(August 18, 2005) Increased particle limit.
+
+-- Released 2.1.3
+
+(August 18, 2005) Made random modifiers check to see if key exists (I forgot
+2 of them before...).
+
+(August 19, 2005) Tweaks.
+
+(August 23, 2005) Added growrate script paramater, added EF_NODEPTHTEST,
+added EF_NODRAW, EF_ADDITIVE, EF_BLUE, EF_RED, EF_FULLBRIGHT, and
+EF_FLAME entity effects, (sorta) added PF_getsurfacenumpoints (#434),
+PF_getsurfacenormal (#436), and PF_getsurfacetexture (#437), fixed render bug 
+with EF_ADDITIVE, removed fullbright model script flag, added blueflag and redflag
+model script flags (for EF_BLUE and EF_RED).
+
+(August 24, 2005) Cleaned up some compile warnings, added PF_TraceBox (#90), PF_min (#94),
+PF_max (#95), PF_bound (#96), PF_pow (#97), and PF_FindFloat (#98), added scriptable
+trail support, disabled trail scripts on player.mdl, changed color of engine extensions
+listing to be more readable.
+
+(August 25, 2005) Fixed scriptable physics on particles, made particle textures check for
+textures in the directory then revert to hardcoded ones.
+
+(August 26, 2005) Fixed a bunch of warnings in the particle script function, fixed
+blood trails bug, added trailextra script paramater, fixed bug with trailextra, fixed
+grenades-don't-bounce-on-slopes bug, fixed bug with strange smoke velocities.
+
+(August 30, 2005) Fixed bug with giving particle scripts to flame models.
+
+(August 31, 2005) Fixed bug with particle trails, fixed gamma menu slider, made fire texture
+check for texture in directory then revert to smoke_tex, added loadparticlescript command,
+added particle depth sorting.
+
+(September 1, 2005) Added 'speed' paramater to particle scripts.
+
+(September 2, 2005) Added srcblend and dstblend paramaters to particle scripts, made 'red'
+'green' and 'blue' acceptable as well as old color paramaters, improved script trail checking,
+fixed zerodir bug in scripts, added vertex shading on md3 models, fixed bug with quad shell
+on vertex shaded md3 models.
+
+(September 3, 2005) Mostly added depth sorted water.
+
+(September 5, 2005) Partially fixed depth sorted water.
+
+(September 6, 2005) Tweaks, added rotation and rotation_speed script paramaters.
+
+(September 7, 2005) Fixed depth sorted water.
+
+(September 9, 2005) Fixed fix for depth sorted water, tweaked particles, added r_depthsort cvar.
+
+(September 10, 2005) Added "randrotatespeed" paramater, added console clock and cvar,
+added twisty console and cvar.
+
+(September 15-19, 2005) Added reflective water, fixed NVIDIA drivers alt-tab bug,
+tweaked fire, fixed torch smoke, tweaked blood trails.
+
+-- Released 2.1.4
+
+(November 17, 2005) Fixed problem when reflective water is off, fixed particle reflection bug,
+fixed LoadParticleScript to load from id1 if not found in com_gamedir.
+
+(November 18, 2005) Added turbulent flag on textures starting with "!" during HL maps,
+added MOVETYPE_WALK ability on non-player entities.
+
+(November 21, 2005) Added some particle spawnmodes.
+
+(November 22, 2005) Added scriptable spiral particle trails, added lm (list maps) command,
+added base code for GLSL.
+
+(November 23, 2005) Fixed HOME console key, completed untested GLSL code,
+added randchangeorg paramater.
+
+(November 25, 2005) Added rscript support.
+
+(November 28, 2005) Replaced old (nasty) gamma code with mh's hardware brightness code, tweaked
+R_LavaSplash, added some hurtblur tweaks for RO_GAME, tweaked light blooms, fixed bug
+with LoadParticleScript, improved decal spawning code, fixed texture shader water, added
+.alpha support, added PF_effect, tweaks...
+
+(November 29, 2005) Added .alpha to md3, added TE_VEN_PARTSCRIPT (#128) particle extension,
+added PF_te_ven_partscript (#521) extension, added PF_dropclient(#453) extension.
+
+(November 30, 2005) Fixed detail texturing and shiny textures on 2 TMU's.
+
+(December 1, 2005) Removed unneeded struct stuff in Surf_DrawExtraChainsTwo.
+
+(December 5, 2005) Added dynamic crosshair and cvar, tweaks.
+
+(December 6, 2005) Fixed TE_PARTICLERAIN (#55) and TE_PARTICLESNOW (#56)
+particle extensions, partially fixed TE_FLAMEJET (#74), fixed underwater screen warping,
+changed default resolution back to 640x480, tweaks.
+
+(December 7, 2005) Tweaks (including light blooms), added transparency to md3 shadows.
+
+-- Released 2.1.5
+
+(December 9, 2005) Fixed bug with particles in fog, commented out unnecessary
+light blooms code, removed use of certain .lmp's in the help menu, fixed alpha
+on quad model shells.
+
+(December 10, 2005) Tweaks.
+
+(December 12, 2005) Fixed bug with model shells, fixed bug with texture animations on buttons,
+added vertex array code to particle drawing.
+
+(December 14, 2005) Removed 4TMU stuff from 2TMU path, added more vertex array code to
+particle drawing, made md3 skin loading fall back on model name if it can't
+find correct skin, made r_vertexshading decimals change intensity of effect,
+made reflective water drawing slightly faster, tweaks.
+
+(December 16, 2005) Fixed light bloom + motion blur problem, added vertex arrays to
+water drawing, added sv_gamespeed calculations to smooth animations and movements,
+fixed interpolation on MOVETYPE_WALK entities.
+
+(December 19, 2005) Removed unnecessary stuff in R_DrawWaterChain, changed vertex array textures
+to GL_INT data (faster) in particle draw, tweaks.
+
+(December 22, 2005) Added vertex arrays to GL_DrawAliasFrame and GL_DrawAliasBlendedFrame.
+
+(December 27, 2005) Fixed problem with mdl quad-shells and vertex shading.
+
+(December 28, 2005) Fixed EF_ADDITIVE, added alpha channel support to model skins and world
+textures, fixed skyboxes.
+
+(December 29, 2005) Fixed problem with alpha channels.
+
+(December 31, 2005) Tweaked alpha channels.
+
+(January 2, 2006) Added glClientActiveTexture, fixed vertex shading and quad-shell
+on vertex arrays.
+
+(January 3, 2006) Fixed viewmodel in reflections, fixed sky stuff on "SKY", tweaked
+AddFire calls.
+
+(January 4, 2006) Fixed reflective water + hurtblur bug, tweaked decals,
+added SOLID_CORPSE capabilities, added MOVETYPE_BOUNCEMISSILE support.
+
+(January 5, 2006) Fixed depth sorting on water, tweaked hurtblur.
+
+-- Released 1-06-06 beta
+
+(January 6, 2006) Added caustics texture shader, tweaked watersplash.
+
+(January 8, 2006) Tweaks.
+
+(January 9, 2006) Commented some #ifdef QUAKE2's related to avelocity on MOVETYPE_PUSH,
+tweaks.
+
+(January 10, 2006) Added directional vertex lighting to mdl drawing with r_dirlighting
+cvar, made detailtexture revert to automatic gl_noise.c stuff when detail texture is not found.
+
+(January 11, 2006) Added proper alpha channels to models, tweaked directional lighting,
+fixed sliding when on top of other entities, slightly tweaked water draw.
+
+(January 12, 2006) Tweaks.
+
+(January 13, 2006) Fixed dynamic crosshair, added more menu options, added support for
+scripting the RocketTrail, GrenadeTrail, and BloodTrail particle trails, renamed
+"lm" command to "listmaps".
+
+(January 14, 2006) Added "listskies" command, added gl_farclip cvar for skyboxes.
+
+(January 15, 2006) Added gl_farclip to calculations in R_SetupGL to fix skybox problems,
+added support for scripting ScragTrail, HKnightTrail, BloodTrail2, and VoreTrail.
+
+(January 16, 2006) Added DP_TE_BLOODSHOWER.
+
+(January 17, 2006) Fixed fog on models, removed fog from sky draw, changed r_vertexshading
+adjustments from 0-1 to 0-10.
+
+-- Release 2.1.6
+
+(January 18, 2006) Improved/fixed directional lighting, removed quad shell model script from
+player.mdl, fixed quad shells from model scripts.
+
+(January 23, 2006) Removed use of qglActiveClientTexture when multitexturing is disabled,
+made detailtexture2 revert to noise generation.
+
+(January 24, 2006) Fixed sliders in menu_server, added novertshade model flag, tweaked
+directional lighting, added support for scripting more TE_* effects, tweaked directional
+lighting.
+
+(January 25, 2006) Added mouse based main menu, added a splash screen, fixed a bug
+with particle scripts.
+
+(January 26, 2006) Adjusted quad-shells by sv_gamespeed, ported FTE's CL_DecayLights.
+
+-- Released 1-25-06 beta
+
+(January 30, 2006) Made mouse reset position on new game, fixed small bug in console game,
+added vertex arrays to 2TMU world draw.
+
+(January 31, 2006) Removed textured vertex shading on mdl's, fixed scripted particle trails,
+changed decal spawning code, tweaked motion blur code.
+
+(February 1, 2006) Added semi-experimental light flares/coronas system, fixed 
+TraceLine to hit brushmodels, reworked mouse-based menus.
+
+(February 2, 2006) Finished mouse-based menus, added alternate method for light flares.
+
+(February 3, 2006) Tweaked light blooms, added centerprint fadeout.
+
+(February 6, 2006) Removed crosshair draw from third person view, tweaks.
+
+(February 7, 2006) Made minor changes to particle system.
+
+(February 8, 2006) Removed rscript which didn't work, edited 2TMU world draw routine,
+fixed a bug in mouse based menus, added base code for proper gamma adjustments.
+
+(February 9, 2006) Finished new gamma, tweaks, added v_contrast cvar, redid v_psycho cvar,
+partially fixed bug with mouse based menus.
+
+(February 10, 2006) Increased MAXIMUM_WIN_MEMORY, increased MAX_GLTEXTURES, slightly tweaked
+particle system, fixed Host_FindMaxClients to be compatible with normal settings,
+fixed numerous warnings (removed unnecessary or old code, etc).
+
+(February 11, 2006) Fixed unresponsive mouse in menus, fixed more compiler warnings.
+
+(February 13, 2006) Added coloring to scene in menu, changed detail texturing, changed
+menu draw, tweaked particles.
+
+(February 14, 2006) Fixed bug with dlights + reflective water, tweaked water draw,
+fixed bug in particle trails, changed color of extensions check text in console, fixed
+directional lighting on viewmodel, made water depth sorting more accurate.
+
+(February 15, 2006) Changed reflective water calculations, fixed bug in reflective water.
+
+(February 16, 2006) Integrated server menu into menu system, added mouse stuff to server
+menu, improved directional lighting.
+
+(February 17, 2006) Continued tweaking directional lighting, added new light blooms system,
+tweaks.
+
+(February 18, 2006) Changed video menu for new bloom options, added mouse wheel changes
+in menus, tweaks.
+
+-- Released 2.1.7
+
+(February 18, 2006) Fixed menu mouse draw, reinstated celshading on mdl's after I
+accidentally removed it, added TE_RAILTRAIL, tweaked directional lighting on viewmodel.
+
+(February 19, 2006) Tweaked/improved directional lighting, tweaked vertex shading on md3.
+
+(February 20, 2006) Improved quad-shell draw, tweaked menu mouse draw, changed scroll
+speed on lightning texture, tweaks.
+
+(February 22, 2006) Fixed directional lighting, improved blood impact calculations,
+added a few things for failed multitexturing check, added traceline collision to pm_bounce.
+
+(February 24, 2006) Added SHOWLMP stuff, tweaks.
+
+(February 25, 2006) Fixed bug in mouse menus, fixed normals calculations in md3 loader.
+
+(February 27, 2006) Added new experimental menu engine (Darkie), fixed bug with menu engine,
+fixed bug in non-640x480 light blooms, tweaked AddFire and AddSmoke, fixed bug in motion blur,
+fixed cvarlist bug.
+
+(February 28, 2006) Fixed a bunch of weird stuff such as the vid.width/vid.height bug,
+some minor cleanup (Darkie), added -noarrays parameter to disable vertex arrays on world draw,
+added DP_CON_SET and DP_CON_SETA and DP_CON_STARTMAP.
+
+(March 1, 2006) Added experimental showico stuff (Darkie), added DP_SV_SETCOLOR and
+DP_REGISTERCVAR, tweaks.
+
+(March 2, 2006) Lots of tweaks, replaced game #ifdef's with console paramaters, fixed
+mouse menu bug with wrong bounds.
+
+(March 3, 2006) Major warning cleanup, added new parm "-extra_info" for developer intended
+messages, fixed menu form center on screen on exit bug (Darkie)
+
+(March 4, 2006) Fixed odd bug in dynamic crosshair, fixed decal placement system, tweaks.
+
+(March 6, 2006) Fixed a fix for chase cam through walls, added cl_viewangles_down
+and cl_viewangles_up cvars, added cheat checks for said cvars, more work on menu (Darkie),
+cleaned up some code.
+
+(March 7, 2006) More work on new menu engine (Darkie), worked on making -nomtex work.
+
+(March 8, 2006) Fixed directional lighting, finished -nomtex, various small bugfixes,
+added new TGA loading code.
+
+(March 9, 2006) Tweaked caustics, added DP_HALFLIFE_MAP_CVAR, fixed position of console
+clock in varying resolutions, tweaked celshading.
+
+(March 10, 2006) Added new filesystem with pk3 support (Spike), changed calls to 
+COM_FOpenFile to use FS_OpenVFS (Spike/Entar).
+
+(March 11, 2006) Changed dynamic size, fixed/added more calls to FS_OpenVFS and related code.
+
+(March 13, 2006) Fixed Host_Loadgame_f, fixed Host_Savegame_f and related code, fixed
+Host_WriteConfiguration and related code, fixed crosshair loading code, more fixes (especially
+to sys_win code).
+
+(March 14, 2006) Bugfix in particles (Discoloda), added r_letterbox and NXQ_GFX_LETTERBOX,
+changed sv_gamespeed to slowmo for compatibility.
+
+(March 15, 2006) Tweaks and cleanup.
+
+(March 16, 2006) Made some bugfixes/tweaks/changes to scriptable particles, fixed
+-condebug, fixed model/shader script stuff.
+
+(March 17, 2006) Tweaks, cleaned up all the warnings (DrLabman).
+
+(March 20, 2006) Fixed PF_fopen, seeded random number generator, fixed COM_WriteFile calls,
+cleaned up some code, enabled DP_GFX_EXTERNALTEXTURES in extensions.
+
+(March 21, 2006) Enabled DP_SV_ROTATINGBMODEL in extensions.
+
+(March 22, 2006) Fixed potential bug in directional lighting, did a little work on the
+new menu system, fixed some bugs in particle scripts, tweaks.
+
+(March 23, 2006) Fixed more bugs in particle scripts.
+
+(March 24, 2006) Fixed a bug in AddSmoke, converted Math Functions from #defines
+to inline functions ready to add SSE asm optimizations (DrLabman), fixed shader
+files bug, added tweaks and comments, fixed part of a particle bug (DrLabman).
+
+(March 25, 2006) Finished fixing particle bug, fixed PF_getsurfacetexture.
+
+(March 29, 2006) Changed over particles to a flat array insted of linked lists,
+code still needs serious cleanup (DrLabman), Hacked renderque to call the particle
+drawing function directly instead of through a function, faster (DrLabman)
+
+(March 30, 2006) Particle speedups and code cleanup (DrLabman)
+
+(April 3, 2006) Fixed up particle emitters somewhat, particle emitters can now be used (DrLabman),
+Changed particle update to use vector maths functions (DrLabman), worked on proper
+custom particle types.
+
+(April 4, 2006) Worked on fixing particles (DrLabman), finished fixing particles, tweaks.
+
+(April 6, 2006) Made the -conwidth and -conheight work again and fixed
+a bug in the crosshair which used the broken sizes (DrLabman), fixed DrLabman's
+somehow-bug-causing crosshair fix, cleaned up AddParticleCustom a bit.
+
+(April 8, 2006) Changed particle lighting to only update ever 0.1 seconds and added
+a cvar to change this, r_part_light_update this can be a large speedup (DrLabman), Moved
+some particle cvars into the gl_rpart.c to clean up the code somewhat (DrLabman),
+Fixed Entar's reintroduced crosshair bug so it works in a scaled console (DrLabman),
+tweaked/fixed new light update code.
+
+(April 9, 2006) Fixed large fires to have smoke start further up from org (DrLabman), stopped
+drawing particles that haven't yet started (where p->start is after cl.time) (DrLabman),
+bugfixes (DrLabman).
+
+(April 10, 2006) Fixed binoculars.
+
+(April 11, 2006) Various small bugfixes.
+
+(April 12, 2006) Cleaned up the particle code and reorder functions (DrLabman), cut down on opengl
+state changes in the particle code for speed boost (DrLabman), various bugfixes, fixed DrLabman's
+opengl state changes stuff.
+
+(April 16, 2006) Particles now chain vertex arrays together and render whole sections
+of the same type of particle together for a speed boost (DrLabman), fixed R_Letterbox to
+actually work as described in spec (DrLabman).
+
+(April 17, 2006) Bugfixes and tweaks.
+
+(April 20, 2006) Added quad shells on md2 models, bugfixes.
+
+(April 23, 2006) Lots of profiling and speed boosts (DrLabman).
+
+(April 24, 2006) Fixed md2 shells, bugfixed particle lighting.
+
+(April 25, 2006) Fixed typos which bugged particle lighting, added proper buttons to
+new menu system, added SPF meter changes.
+
+(April 26, 2006) Tweaked bloom cvar defaults, factored slowmo into caustics drawing.
+
+(April 27, 2006) Added support for DP_ENT_COLORMOD, tweaks, added show_stats.
+
+(April 28, 2006) Tweaks, finished fixing potential bugs in R_RunParticleEffect.
+
+(May 3, 2006) Fixed chase traceline.
+
+(May 10, 2006) Added ShinyGlass and ShinyMetal texture script commands.
+
+(May 12, 2006) Cleaned up EF_DIMLIGHT.
+
+(May 15, 2006) Cleared world angles in SV_SpawnServer [fixes e3m3.bsp], increased usability
+of particle spawnmodes.
+
+(May 16, 2006) Cleaned up spawnmodes some more.
+
+(May 18, 2006) Tweaked lightning color brighter, fixed menus bug, added r_skyfactor,
+fixed bug in screenshot command, cleaned up and fixed telebox spawnmode.
+
+(May 20, 2006) Removed SK_USECHANNEL texture script command, made alpha channels work only
+on brushmodels and models (not the entire world), changed default texture script.
+
+(May 22, 2006) Fixed shadows option in menu, cleaned up particles a little, fixed
+crash caused by R_EntityParticles, tweaks.
+
+(May 25, 2006) Tweaks, added basic client-side prediction system, added sanity checks
+in CL_ParseBeam.
+
+(May 26, 2006) Added sanity checks in CL_UpdateTEnts, improved client side prediction.
+
+(May 27, 2006) Removed client side prediction [didn't really work].
+
+(May 31, 2006) Fixed black mdl viewmodels, fixed bug in 4TMU world draw, applied DP_ENT_COLORMOD to MD3 draw,
+made GL_COMBINE_EXT stuff check gl_combine variable first.
+
+(June 1, 2006) Tweaks, used proper rounding on MSG_WriteAngle and MSG_WriteCoord, cleanup.
+
+(June 2, 2006) Tweaks, cleanup.
+
+(June 5, 2006) Added vid_vsync stuff.
+
+(June 7, 2006) Fixed nasty transparent water bug, optimized R_MarkLights slightly.
+
+(June 8, 2006) Optimized RecursiveLightPoint, added sanity checks in TraceLineN and TraceLineN2, increased
+buffer size in Cmd_CompleteAliasPrintPossible, changed Mod_LeafPVS back [caused bug].
+
+(June 12, 2006) Fixed EF_DIMLIGHT and EF_BRIGHTLIGHT, added Torch and Torch2 particle script section support.
+
+(June 13, 2006) Added "particle" particle script section support.
+
+(June 14, 2006) Fixed save/load game directory, added SCR_ScreenShot_JPEG_f and "screenshot_jpeg" command,
+fixed demo recording, changed execution of fte.cfg in fs.c to vr2.cfg.
+
+(June 19, 2006) Disabled creation of "glquake" directory in VID_Init, changed shader and model scripts to use
+FS_GAMEONLY consistently, restricted splash screen to normal Quake and expansion packs.
+
+(June 20, 2006) Added creation of "Vr2" directory in VID_Init, made spark_tex be replaced by part_tex if external
+texture is not found, fixed video menu, replaced M_Help_Draw with old one [newer one reduced modibility], disabled
+model particle effects when paused, fixed EF_MUZZLEFLASH channelfade bug, fixed LoadParticleScript.
+
+(June 21, 2006) Fixed quad shells when not found externally, fixed lighting texture if not found,
+renamed and adjusted default for particle lighting update cvar, cleanup.
+
+(June 28, 2006) Added offset particle script paramaters, tweaks and cleanup.
+
+(July 1, 2006) Removed changed fly movement option.
+
+(July 3, 2006) Set minimum rquesize and added -rquesize command line parameter.
+
+(July 7, 2006) Tweaked gl_rpart.c (DrLabman), fixed aspect ratio code (DrLabman).
+
+(July 8, 2006) Added r_quadshell cvar, made R_ParticleScript return if count < 1.
+
+(July 11, 2006) Fixed .spr32 loading.
+
+(July 13, 2006) Fixed SCR_ScreenShot_JPEG_f.
+
+(July 14, 2006) Tweaked CL_RelinkEntities light values, fixed particle lighting bug.
+
+(July 15, 2006) Optimized R_ParticleScript.
+
+(July 16, 2006) Improved R_ParticleScript, added flareglow_tex texture selection to LoadParticleScript, changed
+default bloom settings, fixed a bug in LoadParticleScript, fixed problems with AWT (mh).
+
+(July 21, 2006) Cleaned up warnings.
+
+-- Released 2.2.0
+
+(July 21, 2006) Applied QIP SV_PushMove fix.
+
+(July 22, 2006) Tweaked EF_BLUE and EF_RED color values.
+
+(August 7, 2006) Replaced List_Maps_f and List_Skies_f, added "dir" command, added scr_screenshot_name and changed
+screenshot functions accordingly.
+
+(August 8, 2006) Made scr_screenshot_name change to -game mod name, fixed detail texture generation, made blood texture
+generate dynamically instead of hardcoded, tweaked rocket and other trails, clamped FOV values, fixed jumpiness in floaty
+thing on end.bsp.
+
+(August 9, 2006) Fixed possible crash in particle script loading.
+
+(August 11, 2006) Added fragment shader stuff (Black), edited fragment shader stuff.
+
+(August 12, 2006) Changed blood draw to better lighting method, tweaks, added more shader stuff, linked dlights to
+fragment shader lighting.
+
+(August 14, 2006) Fixed gl_polyblend blendmode, added dynamic world lighting using GLSL shaders (Black).
+
+(August 15, 2006) Added cvar for realtime dlights, simplified and improved Cvar_CompletePrintPossible,
+fixed lighting on bmodels (Black).
+
+(August 18, 2006) Added .rtlights support.
+
+(August 28, 2006) Fixed calculations and fragment/vertex shaders for .rtlights support (Black).
+
+(August 29, 2006) Added support for loading shader lights from the map if .rtlights don't load, added new cvars for
+rtlights, revised menu for new cvars, tweaked blood texture generation.
+
+(August 30, 2006) Added r_editlights_quakelightsizescale.
+
+(September 12, 2006) Adjusted particle textures.
+
+(September 20, 2006) Adjusted spark particle size to velocity ratio, changed spark script setup, changed regular
+particle calls to reflect spark changes.
+
+(September 22, 2006) Made LoadParticleScript default to last loaded when no parameter is given.
+
+(September 28, 2006) Changed world outline color back to black, fixed bug in chasecam traceline.
+
+(October 28, 2006) Fixed bug in bot code that stopped it finding players after spinning too much (DrLabman).
+
+(October 30, 2006) Fixed bug in bot code where the bot aimed up instead of down and down instead of up (DrLabman).
+
+(October 31, 2006) Added lightstyles loading to rtlights, fixed shader light bugs, added r_shadow_lightintensityscale.
+
+(November 1, 2006) Added dynamic crosshair to '+' version, fixed player model interpolation problem, improved
+R_Shadow_SaveWorldLights, fixed bugs in video options menu.
+
+(November 2, 2006) Finished R_Shadow_SaveWorldLights function [r_editlights_save command], added r_part_lightning cvar.
+
+(November 3, 2006) Added default fragment/vertex shaders to fall back on.
+
+(November 4, 2006) Added r_shadow_realtime_world_lightmaps calculations to mdl draw.
+
+(November 6, 2006) Fixed bug with mdl draw with lightmaps setting at 0 without rtlights.
+
+-- Released 2.2.1
+
+(November 7, 2006) Optimized reflective water and motion blur.
+
+(November 13, 2006) Tweaked blood texture generator.
+
+(November 16, 2006) Fixed strange texture shader water bug, fixed bug in player colors, fixed draw with no multitexturing
+available.
+
+(November 17, 2006) Fixed black text in console after finishing avi capture.
+
+(November 18, 2006) Fixed bad translating on gibbed player head models.
+
+(November 20, 2006) Added new r_editlights cvars and commands.
+
+(November 21, 2006) Fixed celshading bug, tweaks.
+
+(November 22, 2006) Added cl_gunx/y/z offset cvars, tweaked model quad-shells, fixed console background
+draw bug.
+
+(November 23, 2006) Fixed script_setcolor and added script_setcount variables for particle scripts.
+
+(November 25, 2006) Fixed cl_gunx/y/z cvars, reworked blood texture generation system.
+
+(November 30, 2006) Fixed dlight->rtlight conversion.
+
+-- Released 2.2.2
+
+(December 13, 2006) Added rtlights support to md3 draw.
+
+(December 15, 2006) Fixed and restructured md3 drawing routine.
+
+(December 19, 2006) Tweaks, bugfixes.
+
+(December 20, 2006) Fixed md3 shadow animation, added GL_POINTS light draw with r_editlights 1.
+
+(December 22, 2006) Fixed r_speeds poly display from md3's, fixed r_shadow_realtime_world_lightmaps on md3's, added
+an edited version of LordHavoc's tab completion system, changed r_speeds display routine, revised screenshot system
+with addition of scr_screenshot_gammaboost and scr_screenshot_jpeg cvars.
+
+(December 27, 2006) Fixed tilting md3 shadows.
+
+(December 28, 2006) Fixed colormod in fragment shader.
+
+(January 2, 2007) Added scr_screenshot_gammaboost to tga screenshots, added screenshot options to video menu, added
+chase_active 4 option, added value displays to video menu sliders.
+
+(January 4, 2007) Added base vid_restart changes (Spike), cleaned up vid_restart bugs, added new vid_restart cvars,
+and rearranged video modes menu, fixed bug in static entities.
+
+(January 5, 2007) Fixed problems with video initialization and command line commands, ported DP's video modes menu,
+ported DP's Cvar_SetValueQuick functions, various vid_restart bugfixes, fixed typo in particle velocity calculations,
+cleanup.
+
+(January 6, 2007) Optimized particle physics, fixed typo that caused mdl's to ignore lightmaps.
+
+(January 8, 2007) Cleaned up warnings, added vertex arrays to world draw, added colormod/alpha support to
+brushmodels.
+
+-- Released 2.2.3
+
+(January 13, 2007) Changed sv.lightstyles to a regular array to avoid trouble with the hunk.
+
+(January 15, 2007) Fixed bug in lightstyle saving.
+
+(January 19, 2007) Added cubemap loading support to texture system (Black).
+
+(January 20, 2007) Fixed bug in md3 rtlights drawing, cleanup.
+
+(January 22, 2007) Removed smoke changing to bubbles underwater.
+
+(January 26, 2007) Added _gloss textures to world texture loading.
+
+(January 27, 2007) Added multi-skin to md3 loading, added _luma and _gloss textures to md3 texture loading.
+
+(February 27, 2007) Added parsing skybox name from entity lump.
+
+(March 19, 2007) Fixed player skin translating, fixed black models with r_fullbright 1.
+
+(March 21, 2007) Fixed bug in reflective water, optimized rtlights world draw, cleanup.
+
+(March 31, 2007) Mostly fixed cubemap problem, cleanup.
+
+-- Released 2.2.4
+
+(April 23, 2007) Fixed bugs in fragment shader.
+
+(April 19-24, 2007) Cleaned up major memory leaks in Lamescript 1.01 and cleaned up all warnings in build (DrLabman)
+
+(April 24, 2007) Added new code to default fragment and vertex shaders.
+
+(April 25, 2007) Made config.cfg be written to the -game directory.
+
+(April 30, 2007) Fixed sliding on SOLID_BBOX and _SLIDEBOX entities.
+
+(May 18, 2007) Disabled R_PushDlights when realtime dlights and realtime world draw are enabled.
+
+(May 19, 2007) Fixed some networking stuff, made blood trail #2 use r_decaltime.value time, added
+basic version of fake cd tracks.
+
+(May 20, 2007) Fixed forced looping on fake cd tracks.
+
+(May 21, 2007) Fixed bug in texture and model scripts, fixed crash from fake tracks, added
+support for per-map 24-bit texture folders, made cd off console command apply to fake tracks.
+
+(May 22, 2007) Finished basic fake tracks system.
+
+(May 31, 2007) Changed some default bloom cvar values.
+
+(June 4, 2007) Fixed fake CD tracks detecting NULL.
+
+(June 6, 2007) Enabled DP_GFX_SKYBOX and DP_SND_FAKETRACKS extensions.
+
+-- Released 2.2.5
+
+(July 2, 2007) Added use of corona settings from .rtlights files, added coronas graphics menu option.
+
+(July 6, 2007) Fixed getting center of surf when not needed in EmitWaterPolysMulti.
+
+Entar : Well, I'll be.
+
+**********************
+TODO/Wish List
+**********************
+
+http://entar.quakedev.com/wiki/index.php/Vengeance_r2_Todo_List
+
+*****************************
+Special thanks to DrLabman for making such a great engine that I could start from, to all
+the folks at the QSG for coding support, and to everyone who I nicked code from or who
+contributed.
+*****************************
